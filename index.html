@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewpoint" content="width=device-width, initial-scale=1.0">
     <title>Стартовая страница</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -17,9 +18,10 @@
             <fouter>
 
             </fouter>
+
         </main>
     </header>
-    <h1>Заголовок первого уровня</h1>
+    <h1 class="head1">Заголовок первого уровня</h1>
     <section class="part_one">
         <h2>Заголовок второго уровня</h2>
     </section>
@@ -29,6 +31,35 @@
 
     <div class="classed">
         <img src="" alt="">
+        <table class="table">
+            <tr>
+                <th>
+                    Первое
+                </th>
+                <th colspan="2">
+                    Второе
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    Первое
+                </td>
+                <td>
+                    Второе
+                </td>
+                <td rowspan="2">
+                    Третье
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Первое
+                </td>
+                <td>
+                    Второе
+                </td>
+            </tr>
+        </table>
     </div>
     <form action="">
         <fieldset>
@@ -39,5 +70,14 @@
 
 
 </body>
+<style>
+    .table {
+        border: 1px solid black;
+    }
+
+    .table td {
+        border: 1px solid black;
+    }
+</style>
 
 </html>
