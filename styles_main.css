@@ -91,12 +91,21 @@ footer:hover {
 }
 
 @media screen and (max-width: 600px) {
+
     body {
-        padding-left: 0;
+        padding-left: 10px;
+    }
+
+    main {
+        padding-left: 0px;
     }
 
     body header h1 {
         text-align: center;
+    }
+
+    nav ul {
+        padding-left: 0;
     }
 
     nav {
@@ -105,6 +114,7 @@ footer:hover {
         align-items: center;
         text-align: center;
         justify-content: center;
+        text-align: center;
     }
 
     nav a {
@@ -113,6 +123,7 @@ footer:hover {
 
     .about img {
         max-width: 100%;
+        text-align: center;
     }
 
     table th,
