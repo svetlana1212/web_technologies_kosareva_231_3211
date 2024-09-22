@@ -91,6 +91,10 @@ footer:hover {
 }
 
 @media screen and (max-width: 600px) {
+    body {
+        padding-left: 0;
+    }
+
     body header h1 {
         text-align: center;
     }
