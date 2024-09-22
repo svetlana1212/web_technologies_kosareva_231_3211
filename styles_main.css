@@ -103,7 +103,7 @@ footer:hover {
     }
 
     nav a {
-        font-size: calc(1rem+4px);
+        font-size: calc(1rem + 4px);
     }
 
     .about img {
@@ -112,7 +112,7 @@ footer:hover {
 
     table th,
     table td {
-        font-size: calc(1rem-2px);
+        font-size: calc(1rem - 2px);
     }
 }
 
@@ -120,6 +120,6 @@ footer:hover {
 
     table th,
     table td {
-        font-size: calc(1rem-4px);
+        font-size: calc(1rem - 4px);
     }
 }
