@@ -1,0 +1,106 @@
+main {
+    padding-left: 0;
+}
+
+
+.section h2 {
+    padding-left: 30px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 40px;
+    border-radius: 35px;
+    cursor: pointer;
+    filter: drop-shadow(17px 19px 24px rgba(0, 0, 0, 0.13));
+    background-color: white;
+    margin-bottom: 20px;
+
+}
+
+.flex img {
+    border-radius: 35px;
+    max-width: 100%;
+    margin-bottom: 5%;
+    transition: transform 0.3s ease;
+}
+
+
+.flex:hover {
+    border: 2px solid tomato;
+}
+
+.flex:hover button {
+    background-color: tomato;
+}
+
+.flex img:hover {
+    border-radius: 35px;
+    transform: scale(1.1);
+}
+
+#price,
+#food,
+#weight {
+    margin: 2%;
+    transition: transform 0.3s ease;
+}
+
+
+#price:hover,
+#food:hover {
+    transform: scale(1.1);
+}
+
+#weight:hover {
+    color: gray;
+}
+
+.flex button {
+    background-color: #f1eee9;
+    margin-top: 20px;
+    padding: 10px 30px;
+    border-radius: 10px;
+    cursor: pointer;
+    border-color: #f1eee9;
+}
+
+nav {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+nav a.active {
+    color: tomato;
+}
+
+nav a:hover {
+    color: tomato;
+}
+
+
+@media screen and (max-width: 800px) {
+
+    .section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    section h2 {
+        text-align: center;
+    }
+
+    .section {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

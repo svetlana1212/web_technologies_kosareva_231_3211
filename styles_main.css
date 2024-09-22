@@ -3,6 +3,10 @@
     font-family: "Montserrat", sans-serif;
 }
 
+nav a.active {
+    color: tomato;
+}
+
 body {
     margin: 0;
     padding: 10px;
@@ -34,7 +38,7 @@ nav ul li a {
 }
 
 nav a:hover {
-    color: orange;
+    color: tomato;
 }
 
 main {
@@ -42,7 +46,7 @@ main {
 }
 
 section h2 {
-    font-size: 22px;
+    font-size: 20px;
     margin-top: 0;
 }
 
@@ -78,4 +82,44 @@ footer {
 
 footer:hover {
     text-decoration: underline;
+}
+
+@media screen and (max-width:800px) {
+    .about img {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    h1 {
+        text-align: center;
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav a {
+        font-size: calc(1rem+4px);
+    }
+
+    .about img {
+        width: 100%;
+    }
+
+    table th,
+    table td {
+        font-size: calc(1rem-2px);
+    }
+}
+
+@media screen and (max-width:400px) {
+
+    table th,
+    table td {
+        font-size: calc(1rem-4px);
+    }
 }
