@@ -90,7 +90,7 @@ nav a:hover {
 
 @media screen and (max-width: 800px) {
 
-    .section {
+    .grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
@@ -100,7 +100,7 @@ nav a:hover {
         text-align: center;
     }
 
-    .section {
+    .grid {
         grid-template-columns: repeat(3, 1fr);
     }
 }
