@@ -12,7 +12,9 @@
         rel="stylesheet">
     <link rel="stylesheet" href="styles_main.css">
     <link rel="stylesheet" href="styles_make_lunch.css">
+    <script src="make_lunch.js"></script>
 </head>
+
 
 <body>
     <header>
@@ -29,119 +31,42 @@
     <main>
         <section class="section">
             <h2>Выберите суп</h2>
-            <div class="grid">
-                <div class="flex">
-                    <img src="gaspacho_soup.jpg" alt="Гаспачо">
-                    <p id="price">195₽</p>
-                    <p id="food">Гаспачо</p>
-                    <p id="weight">350 г</p>
-                    <button>Добавить</button>
-                </div>
-                <div class="flex">
-                    <img src="mashr_soup.jpg" alt="Грибной суп-пюре">
-                    <p id="price">185₽</p>
-                    <p id="food">Грибной суп-пюре</p>
-                    <p id="weight">330 г</p>
-                    <button>Добавить</button>
-                </div>
-                <div class="flex">
-                    <img src="pumpkin_soup.jpg" alt="Тыквенный суп">
-                    <p id="price">270₽</p>
-                    <p id="food">Тыквенный суп</p>
-                    <p id="weight">330 г</p>
-                    <button>Добавить</button>
-                </div>
-            </div>
+            <div class="grid"></div>
         </section>
         <section class="section">
             <h2>Выберите главное блюдо</h2>
-            <div class="grid">
-                <div class="flex">
-                    <img src="potato_two.jpg" alt="Жареная картошка с грибами">
-                    <p id="price">150₽</p>
-                    <p id="food">Жареная картошка с грибами</p>
-                    <p id="weight">250 г</p>
-                    <button>Добавить</button>
-                </div>
-                <div class="flex">
-                    <img src="pasta_losos.jpg" alt="Паста с лососем">
-                    <p id="price">385₽</p>
-                    <p id="food">Паста с лососем</p>
-                    <p id="weight">310 г</p>
-                    <button>Добавить</button>
-                </div>
-                <div class="flex">
-                    <img src="meat_vegetables.jpg" alt="Жареное мясо с овощами">
-                    <p id="price">225₽</p>
-                    <p id="food">Жареное мясо с овощами</p>
-                    <p id="weight">280 г</p>
-                    <button>Добавить</button>
-                </div>
-            </div>
+            <div class="grid"></div>
         </section>
         <section class="section">
             <h2>Выберите напиток</h2>
-            <div class="grid">
-                <div class="flex">
-                    <img src="orange.jpg" alt="Апельсиновый сок">
-                    <p id="price">120₽</p>
-                    <p id="food">Апельсиновый сок</p>
-                    <p id="weight">300 мл</p>
-                    <button>Добавить</button>
-                </div>
-                <div class="flex">
-                    <img src="apple.jpg" alt="Яблочный сок">
-                    <p id="price">90₽</p>
-                    <p id="food">Яблочный сок</p>
-                    <p id="weight">300 мл</p>
-                    <button>Добавить</button>
-                </div>
-                <div class="flex">
-                    <img src="carrot.jpg" alt="Морковный сок">
-                    <p id="price">110₽</p>
-                    <p id="food">Морковный сок</p>
-                    <p id="weight">330 мл</p>
-                    <button>Добавить</button>
-                </div>
-            </div>
+            <div class="grid"></div>
         </section>
     </main>
     <section class="two-forms">
         <h2 id="form">Сделать заказ</h2>
         <form action="https://httpbin.org/post" method="POST">
             <fieldset class="lunch">
-                <legend class="your_order">Ваш заказ</legend>
-                <label for="soup-select">Суп</label>
+                <p class="your_order">Ваш заказ</p>
 
-                <select name="soup-select" id="soup-select" required>
-                    <option value="">-- Выберите суп --</option>
-                    <option value="gaspacho">Гаспачо</option>
-                    <option value="mashrom">Грибной суп-пюре</option>
-                    <option value="pumpkin">Тыквенный суп</option>
-                </select>
+                <p id="empty_space"><b>Ничего не выбрано</b></p>
 
-                <label for="main-select">Главное блюдо</label>
+                <p id="soup-select"><b>Суп</b></p>
+                <p id="soup-selected">Блюдо не выбрано</p>
 
-                <select name="main-select" id="main-select" required>
-                    <option value="">-- Выберите главное блюдо --</option>
-                    <option value="gaspacho">Жареная картошка с грибами</option>
-                    <option value="mashrom">Паста с лососем</option>
-                    <option value="pumpkin">Жареное мясо с овощами</option>
-                </select>
+                <p id="main-select"><b>Главное блюдо</b></p>
+                <p id="main-selected">Блюдо не выбрано</p>
 
-                <label for="juice-select">Напиток</label>
+                <p id="juice-select"><b>Напиток</b></p>
+                <p id="juice-selected">Напиток не выбран</p>
 
-                <select name="juice-select" id="juice-select" required>
-                    <option value="">-- Выберите напиток --</option>
-                    <option value="gaspacho">Апельсиновый сок</option>
-                    <option value="mashrom">Яблочный сок</option>
-                    <option value="pumpkin">Морковный сок</option>
-                </select>
+                <p id="food_price">Стоимость заказа</p>
+                <p id="price">0₽</p>
 
-                <label for="comment">Комментарий к заказу</label>
+                <label class='label_comment' for="comment">Комментарий к заказу</label>
                 <textarea id="comment" rows="6" cols="34"
                     placeholder="Укажите, какие у Вас есть пожелания или особенности"></textarea>
             </fieldset>
+
             <fieldset class="user">
                 <legend class="your_data">Ваши данные</legend>
 

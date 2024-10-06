@@ -50,20 +50,20 @@ main {
 
 
 
-#price,
-#food,
-#weight {
+.price,
+.food,
+.weight {
     margin: 2%;
     transition: transform 0.3s ease;
 }
 
 
-#price:hover,
-#food:hover {
+.price:hover,
+.food:hover {
     transform: scale(1.1);
 }
 
-#weight:hover {
+.weight:hover {
     color: gray;
 }
 
@@ -135,9 +135,15 @@ form {
 
 }
 
+p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
 .your_data,
 .your_order {
     margin-bottom: 10px;
+    margin-top: 0;
 }
 
 select {
@@ -166,6 +172,10 @@ textarea {
 #open_time {
     margin-top: 5px;
     margin-bottom: 15px;
+}
+
+.label_comment {
+    margin-top: 10px;
 }
 
 
@@ -201,6 +211,18 @@ textarea {
 #open_time {
     font-size: smaller;
     font-style: italic;
+}
+
+#food_price,
+#empty_space,
+#soup-select,
+#main-select,
+#juice-select {
+    font-weight: bold;
+}
+
+#price {
+    font-size: larger;
 }
 
 #reset,

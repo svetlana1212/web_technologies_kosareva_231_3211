@@ -1,0 +1,76 @@
+{
+    "dishes": [
+        {
+            "keyword": "gaspacho",
+            "name": "Гаспачо",
+            "price": 195,
+            "category": "суп",
+            "volume": "350 г",
+            "image": "gaspacho_soup.jpg"
+        },
+        {
+            "keyword": "mashrom",
+            "name": "Грибной суп-пюре",
+            "price": 185,
+            "category": "суп",
+            "volume": "330 г",
+            "image": "mashr_soup.jpg"
+        },
+        {
+            "keyword": "pumpkin",
+            "name": "Тыквенный суп",
+            "price": 270,
+            "category": "суп",
+            "volume": "330 г",
+            "image": "pumpkin_soup.jpg"
+        },
+        {
+            "keyword": "potato",
+            "name": "Жареная картошка с грибами",
+            "price": 150,
+            "category": "главное блюдо",
+            "volume": "250 г",
+            "image": "potato_two.jpg"
+        },
+        {
+            "keyword": "pasta_salmon",
+            "name": "Паста с лососем",
+            "price": 385,
+            "category": "главное блюдо",
+            "volume": "310 г",
+            "image": "pasta_losos.jpg"
+        },
+        {
+            "keyword": "meat_vegetables",
+            "name": "Жареное мясо с овощами",
+            "price": 225,
+            "category": "главное блюдо",
+            "volume": "280 г",
+            "image": "meat_vegetables.jpg"
+        },
+        {
+            "keyword": "orange_juice",
+            "name": "Апельсиновый сок",
+            "price": 120,
+            "category": "напиток",
+            "volume": "300 мл",
+            "image": "orange.jpg"
+        },
+        {
+            "keyword": "apple_juice",
+            "name": "Яблочный сок",
+            "price": 90,
+            "category": "напиток",
+            "volume": "300 мл",
+            "image": "apple.jpg"
+        },
+        {
+            "keyword": "carrote_juice",
+            "name": "Морковный сок",
+            "price": 110,
+            "category": "напиток",
+            "volume": "330 мл",
+            "image": "carrot.jpg"
+        }
+    ]
+}
