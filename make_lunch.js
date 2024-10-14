@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const SectionSoups = document.querySelectorAll('.grid')[0];
         const SectionMain = document.querySelectorAll('.grid')[1];
-        const SectionJuice = document.querySelectorAll('.grid')[2];
+        const SectionSalad = document.querySelectorAll('.grid')[2];
+        const SectionJuice = document.querySelectorAll('.grid')[3];
+        const SectionDessert = document.querySelectorAll('.grid')[4];
 
         function TicketsMake(dish) {
             const ticket = document.createElement('div');
@@ -55,7 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         GoTickets(SectionSoups, 'суп');
         GoTickets(SectionMain, 'главное блюдо');
+        GoTickets(SectionSalad, 'салат');
         GoTickets(SectionJuice, 'напиток');
+        GoTickets(SectionDessert, 'десерт');
 
         let FoodPrice = 0;
         const FoodPriceElements = document.getElementById('food_price');
@@ -64,23 +68,39 @@ document.addEventListener('DOMContentLoaded', () => {
         let ChosenFood = {
             'суп': null,
             'главное блюдо': null,
+            'салат': null,
             'напиток': null,
+            'десерт': null,
         };
 
         const SoupLabel = document.getElementById('soup-select');
         const ChosenSoup = document.getElementById('soup-selected');
         const MainLabel = document.getElementById('main-select');
+        const ChosenSalad = document.getElementById('salad-selected');
+        const SaladLabel = document.getElementById('salad-select');
         const ChosenMain = document.getElementById('main-selected');
         const JuiceLabel = document.getElementById('juice-select');
         const ChosenJuice = document.getElementById('juice-selected');
+        const DessertLabel = document.getElementById('dessert-select');
+        const ChosenDessert = document.getElementById('dessert-selected');
+
+
         const EmptyMessage = document.getElementById('empty_space');
+
+
 
         ChosenSoup.style.display = 'none';
         ChosenMain.style.display = 'none';
+        ChosenSalad.style.display = 'none';
         ChosenJuice.style.display = 'none';
+        ChosenDessert.style.display = 'none';
+
         SoupLabel.style.display = 'none';
         MainLabel.style.display = 'none';
+        SaladLabel.style.display = 'none';
         JuiceLabel.style.display = 'none';
+        DessertLabel.style.display = 'none';
+
         FoodPriceElements.style.display = 'none';
         PriceCount.style.display = 'none';
 
@@ -93,8 +113,14 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (dish['category'] === 'главное блюдо') {
                 UpdateGridElem('главное блюдо', dish, ChosenMain, MainLabel);
                 GetUpdate = true;
+            } else if (dish['category'] === 'салат') {
+                UpdateGridElem('салат', dish, ChosenSalad, SaladLabel);
+                GetUpdate = true;
             } else if (dish['category'] === 'напиток') {
                 UpdateGridElem('напиток', dish, ChosenJuice, JuiceLabel);
+                GetUpdate = true;
+            } else if (dish['category'] === 'десерт') {
+                UpdateGridElem('десерт', dish, ChosenDessert, DessertLabel);
                 GetUpdate = true;
             }
 
@@ -135,10 +161,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 MainLabel.style.display = 'block';
                 ChosenMain.style.display = 'block';
             }
+            if (ChosenFood['салат'] === null) {
+                ChosenSalad.textContent = 'Блюдо не выбрано';
+                SaladLabel.style.display = 'block';
+                ChosenSalad.style.display = 'block';
+            }
             if (ChosenFood['напиток'] === null) {
                 ChosenJuice.textContent = 'Напиток не выбран';
                 JuiceLabel.style.display = 'block';
                 ChosenJuice.style.display = 'block';
+            }
+            if (ChosenFood['десерт'] === null) {
+                ChosenDessert.textContent = 'Десерт не выбран';
+                DessertLabel.style.display = 'block';
+                ChosenDessert.style.display = 'block';
             }
         }
 
