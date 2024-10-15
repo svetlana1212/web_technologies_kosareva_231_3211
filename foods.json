@@ -46,12 +46,12 @@
             "kind": "meat"
         },
         {
-            "keyword": "borsch",
-            "name": "Борщ",
+            "keyword": "soup_meatballs",
+            "name": "Суп с фрикадельками",
             "price": 285,
             "category": "суп",
             "volume": "350 г",
-            "image": "borsch.jpg",
+            "image": "soup_meatballs.jpg",
             "kind": "meat"
         },
         {
@@ -232,7 +232,7 @@
             "category": "десерт",
             "volume": "300 гр",
             "image": "apple_charlotte.jpg",
-            "kind": " large"
+            "kind": "large"
         },
         {
             "keyword": "brownie cake",

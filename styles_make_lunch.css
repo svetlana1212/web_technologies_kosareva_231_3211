@@ -1,11 +1,8 @@
 main {
-    padding-left: 0;
+    padding-left: 30;
+    padding-right: 30;
 }
 
-
-.section h2 {
-    padding-left: 30px;
-}
 
 .grid {
     display: grid;
@@ -238,4 +235,25 @@ textarea {
 #reset:hover,
 #submit:hover {
     background-color: rgba(0, 0, 0, 0.13);
+}
+
+.filters {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.filters a {
+    font-size: smaller;
+    padding: 10px;
+    text-decoration: none;
+    color: rgb(2, 93, 2);
+    border-radius: 35px;
+}
+
+.filters a:active {
+    background-color: rgba(165, 205, 126, 0.96);
+}
+
+.filters a:hover {
+    background-color: rgba(165, 205, 126, 0.96);
 }
