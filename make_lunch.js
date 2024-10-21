@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
         function TicketsMake(dish) {
             const ticket = document.createElement('div');
             ticket.classList.add('flex');
+            ticket.dataset.kind = dish['kind'];
 
             const img = document.createElement('img');
             img.src = dish['image'];
@@ -27,8 +28,8 @@ document.addEventListener('DOMContentLoaded', () => {
             food.textContent = dish['name'];
 
             const weight = document.createElement('p');
-            weight.classList.add('weight');
-            weight.textContent = dish['weight'];
+            weight.classList.add('volume');
+            weight.textContent = dish['volume'];
 
             const button = document.createElement('button');
             button.textContent = "Добавить";
@@ -84,10 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const DessertLabel = document.getElementById('dessert-select');
         const ChosenDessert = document.getElementById('dessert-selected');
 
-
         const EmptyMessage = document.getElementById('empty_space');
-
-
 
         ChosenSoup.style.display = 'none';
         ChosenMain.style.display = 'none';
@@ -178,7 +176,41 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        function setupFilters(category) {
+            const filters = document.querySelectorAll(`.${category}-filter`);
 
+            filters.forEach(filter => {
+                filter.addEventListener('click', (e) => {
+                    e.preventDefault();
 
+                    const dishes = document.querySelectorAll(`#${category} .flex`);
+                    const isActive = filter.classList.contains('active');
+                    const filterKind = filter.dataset.kind;
+
+                    filters.forEach(f => f.classList.remove('active'));
+
+                    if (!isActive) {
+                        filter.classList.add('active');
+                        dishes.forEach(dish => {
+                            if (dish.dataset.kind === filterKind) {
+                                dish.classList.remove('hidden');
+                            } else {
+                                dish.classList.add('hidden');
+                            }
+                        });
+                    } else {
+                        dishes.forEach(dish => dish.classList.remove('hidden'));
+                    }
+                });
+            });
+        }
+
+        const categories = ['soup', 'main', 'juice', 'salad', 'dessert'];
+        categories.forEach(setupFilters);
     });
+
 });
+
+
+
+

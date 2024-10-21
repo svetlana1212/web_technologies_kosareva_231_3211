@@ -45,11 +45,9 @@ main {
     transform: scale(1.1);
 }
 
-
-
 .price,
 .food,
-.weight {
+.volume {
     margin: 2%;
     transition: transform 0.3s ease;
 }
@@ -60,7 +58,7 @@ main {
     transform: scale(1.1);
 }
 
-.weight:hover {
+.volume:hover {
     color: gray;
 }
 
@@ -250,7 +248,7 @@ textarea {
     border-radius: 35px;
 }
 
-.filters a:active {
+.filters a .active {
     background-color: rgba(165, 205, 126, 0.96);
 }
 
