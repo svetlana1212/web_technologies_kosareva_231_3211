@@ -248,10 +248,14 @@ textarea {
     border-radius: 35px;
 }
 
-.filters a .active {
+.filters .active {
     background-color: rgba(165, 205, 126, 0.96);
 }
 
 .filters a:hover {
     background-color: rgba(165, 205, 126, 0.96);
+}
+
+.hidden {
+    display: none;
 }

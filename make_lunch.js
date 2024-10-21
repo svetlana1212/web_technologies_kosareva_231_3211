@@ -183,20 +183,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 filter.addEventListener('click', (e) => {
                     e.preventDefault();
 
-                    const dishes = document.querySelectorAll(`#${category} .flex`);
+                    const section = document.querySelector(`#${category} .grid`);
+                    const dishes = section.querySelectorAll('.flex');
                     const isActive = filter.classList.contains('active');
                     const filterKind = filter.dataset.kind;
+
 
                     filters.forEach(f => f.classList.remove('active'));
 
                     if (!isActive) {
                         filter.classList.add('active');
                         dishes.forEach(dish => {
-                            if (dish.dataset.kind === filterKind) {
-                                dish.classList.remove('hidden');
-                            } else {
-                                dish.classList.add('hidden');
-                            }
+                            dish.classList.toggle('hidden', dish.dataset.kind !== filterKind);
                         });
                     } else {
                         dishes.forEach(dish => dish.classList.remove('hidden'));
@@ -206,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         const categories = ['soup', 'main', 'juice', 'salad', 'dessert'];
-        categories.forEach(setupFilters);
+        categories.forEach(category => setupFilters(category));
     });
 
 });
