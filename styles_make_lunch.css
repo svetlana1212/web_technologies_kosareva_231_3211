@@ -259,3 +259,93 @@ textarea {
 .hidden {
     display: none;
 }
+
+.combo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.combo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 120px;
+    text-align: center;
+}
+
+.combo-flex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.combo img {
+    width: 50%;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    object-fit: contain;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.combo img:hover {
+    transform: translateY(-5px) scale(1.05);
+}
+
+.dessert-info,
+.dish-name {
+    font-size: smaller;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.dessert-info {
+    font-style: italic;
+
+}
+
+.name-combo {
+    text-align: center;
+    margin: 10px;
+}
+
+.notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+}
+
+.notification.hidden {
+    display: none;
+}
+
+#notification-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#notification-button:hover {
+    background-color: #911e42;
+    color: white;
+}

@@ -205,6 +205,65 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const categories = ['soup', 'main', 'juice', 'salad', 'dessert'];
         categories.forEach(category => setupFilters(category));
+
+
+        const submitButton = document.getElementById('submit'); //кнопка отправки формы
+        const notification = document.getElementById('notification'); //уведомление
+        const notificationText = document.getElementById('notification-text');//текст уведомления
+        const notificationButton = document.getElementById('notification-button');//кнопка уведомления
+
+        const requiredCategories = ['суп', 'главное блюдо', 'салат', 'напиток'];
+        const comboOptions = [
+            ['суп', 'главное блюдо', 'салат', 'напиток'],
+            ['суп', 'главное блюдо', 'напиток'],
+            ['суп', 'салат', 'напиток'],
+            ['главное блюдо', 'салат', 'напиток'],
+            ['главное блюдо', 'напиток']
+        ];
+
+        function checkOrder() {
+            const chosenCategories = Object.keys(ChosenFood).filter(category => ChosenFood[category]);//фильтрует категории, чтобы найти выбранные
+            if (chosenCategories.length === 0) {
+                showNotification("Ничего не выбрано. Выберите блюда для заказа");
+                return false;
+            } //если нет выбранных категорий
+
+            let validCombo = comboOptions.some(option =>
+                option.every(item => chosenCategories.includes(item))
+            ); //проверка комбинаций комбо
+
+            if (!validCombo) {
+                if (!chosenCategories.includes('напиток')) {
+                    showNotification("Выберите напиток");
+                } else if (!chosenCategories.includes('главное блюдо') && chosenCategories.includes('суп')) {
+                    showNotification("Выберите главное блюдо/салат/стартер");
+                } else if (!chosenCategories.includes('суп') && !chosenCategories.includes('главное блюдо') && chosenCategories.includes('салат')) {
+                    showNotification("Выберите суп или главное блюдо");
+                } else if (chosenCategories.includes('десерт')) {
+                    showNotification("Выберите главное блюдо");
+                } else {
+                    showNotification("Некорректный выбор. Проверьте ваш заказ.");
+                }
+                return false;
+            } //для показа уведомлений
+
+            return true; //Проверка успешная
+        }
+
+        function showNotification(message) {
+            notificationText.textContent = message;
+            notification.classList.remove('hidden');
+        } //убираем скрытие
+
+        notificationButton.addEventListener('click', () => {
+            notification.classList.add('hidden');
+        });
+
+        submitButton.addEventListener('click', (event) => {
+            if (!checkOrder()) {
+                event.preventDefault(); // Не отправляем форму, если заказ некорректен
+            }
+        });
     });
 
 });
