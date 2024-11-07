@@ -235,11 +235,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!validCombo) {
                 if (!chosenCategories.includes('напиток')) {
                     showNotification("Выберите напиток");
-                } else if (!chosenCategories.includes('главное блюдо') && chosenCategories.includes('суп')) {
+                } else if ((!chosenCategories.includes('главное блюдо') || !chosenCategories.includes('салат')) && chosenCategories.includes('суп')) {
                     showNotification("Выберите главное блюдо/салат/стартер");
                 } else if (!chosenCategories.includes('суп') && !chosenCategories.includes('главное блюдо') && chosenCategories.includes('салат')) {
                     showNotification("Выберите суп или главное блюдо");
-                } else if (chosenCategories.includes('десерт')) {
+                } else if ((chosenCategories.includes('десерт')) || (chosenCategories.includes('напиток'))) {
                     showNotification("Выберите главное блюдо");
                 } else {
                     showNotification("Некорректный выбор. Проверьте ваш заказ.");
