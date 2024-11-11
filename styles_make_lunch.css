@@ -47,7 +47,7 @@ main {
 
 .price,
 .food,
-.volume {
+.count {
     margin: 2%;
     transition: transform 0.3s ease;
 }
@@ -58,7 +58,7 @@ main {
     transform: scale(1.1);
 }
 
-.volume:hover {
+.count:hover {
     color: gray;
 }
 

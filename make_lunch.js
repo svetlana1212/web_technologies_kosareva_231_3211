@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-    fetch("foods.json").then(response => response.json()).then(data => {
-        const sortedFood = data['dishes'].sort((a, b) => {
+    loadDishes();
+});
+
+async function loadDishes() {
+    try {
+        const response = await fetch("http://lab7-api.std-900.ist.mospolytech.ru/api/dishes");
+
+        if (!response.ok) {
+            throw new Error(`Ошибка загрузки: ${response.status}`);
+        }
+        const data = await response.json();
+
+        const sortedFood = data.sort((a, b) => {
             return a['name'].localeCompare(b['name'], 'ru');
         });
 
@@ -16,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ticket.dataset.kind = dish['kind'];
 
             const img = document.createElement('img');
-            img.src = dish['image'];
+            img.src = "/images/" + dish['image'] + ".png";
             img.alt = dish['name'];
 
             const price = document.createElement('p');
@@ -28,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
             food.textContent = dish['name'];
 
             const weight = document.createElement('p');
-            weight.classList.add('volume');
-            weight.textContent = dish['volume'];
+            weight.classList.add('count');
+            weight.textContent = dish['count'];
 
             const button = document.createElement('button');
             button.textContent = "Добавить";
@@ -56,22 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        GoTickets(SectionSoups, 'суп');
-        GoTickets(SectionMain, 'главное блюдо');
-        GoTickets(SectionSalad, 'салат');
-        GoTickets(SectionJuice, 'напиток');
-        GoTickets(SectionDessert, 'десерт');
+        GoTickets(SectionSoups, 'soup');
+        GoTickets(SectionMain, 'main-course');
+        GoTickets(SectionSalad, 'salad');
+        GoTickets(SectionJuice, 'drink');
+        GoTickets(SectionDessert, 'dessert');
 
         let FoodPrice = 0;
         const FoodPriceElements = document.getElementById('food_price');
         const PriceCount = document.getElementById('price');
 
         let ChosenFood = {
-            'суп': null,
-            'главное блюдо': null,
-            'салат': null,
-            'напиток': null,
-            'десерт': null,
+            'soup': null,
+            'main-course': null,
+            'salad': null,
+            'drink': null,
+            'dessert': null,
         };
 
         const SoupLabel = document.getElementById('soup-select');
@@ -105,20 +116,20 @@ document.addEventListener('DOMContentLoaded', () => {
         function GetOrder(dish) {
             let GetUpdate = false;
 
-            if (dish['category'] === 'суп') {
-                UpdateGridElem('суп', dish, ChosenSoup, SoupLabel);
+            if (dish['category'] === 'soup') {
+                UpdateGridElem('soup', dish, ChosenSoup, SoupLabel);
                 GetUpdate = true;
-            } else if (dish['category'] === 'главное блюдо') {
-                UpdateGridElem('главное блюдо', dish, ChosenMain, MainLabel);
+            } else if (dish['category'] === 'main-course') {
+                UpdateGridElem('main-course', dish, ChosenMain, MainLabel);
                 GetUpdate = true;
-            } else if (dish['category'] === 'салат') {
-                UpdateGridElem('салат', dish, ChosenSalad, SaladLabel);
+            } else if (dish['category'] === 'salad') {
+                UpdateGridElem('salad', dish, ChosenSalad, SaladLabel);
                 GetUpdate = true;
-            } else if (dish['category'] === 'напиток') {
-                UpdateGridElem('напиток', dish, ChosenJuice, JuiceLabel);
+            } else if (dish['category'] === 'drink') {
+                UpdateGridElem('drink', dish, ChosenJuice, JuiceLabel);
                 GetUpdate = true;
-            } else if (dish['category'] === 'десерт') {
-                UpdateGridElem('десерт', dish, ChosenDessert, DessertLabel);
+            } else if (dish['category'] === 'dessert') {
+                UpdateGridElem('dessert', dish, ChosenDessert, DessertLabel);
                 GetUpdate = true;
             }
 
@@ -149,28 +160,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         function EmptyElements() {
-            if (ChosenFood['суп'] === null) {
+            if (ChosenFood['soup'] === null) {
                 ChosenSoup.textContent = 'Блюдо не выбрано';
                 SoupLabel.style.display = 'block';
                 ChosenSoup.style.display = 'block';
             }
-            if (ChosenFood['главное блюдо'] === null) {
+            if (ChosenFood['main-course'] === null) {
                 ChosenMain.textContent = 'Блюдо не выбрано';
                 MainLabel.style.display = 'block';
                 ChosenMain.style.display = 'block';
             }
-            if (ChosenFood['салат'] === null) {
+            if (ChosenFood['salad'] === null) {
                 ChosenSalad.textContent = 'Блюдо не выбрано';
                 SaladLabel.style.display = 'block';
                 ChosenSalad.style.display = 'block';
             }
-            if (ChosenFood['напиток'] === null) {
-                ChosenJuice.textContent = 'Напиток не выбран';
+            if (ChosenFood['drink'] === null) {
+                ChosenJuice.textContent = 'drink не выбран';
                 JuiceLabel.style.display = 'block';
                 ChosenJuice.style.display = 'block';
             }
-            if (ChosenFood['десерт'] === null) {
-                ChosenDessert.textContent = 'Десерт не выбран';
+            if (ChosenFood['dessert'] === null) {
+                ChosenDessert.textContent = 'dessert не выбран';
                 DessertLabel.style.display = 'block';
                 ChosenDessert.style.display = 'block';
             }
@@ -212,13 +223,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const notificationText = document.getElementById('notification-text');//текст уведомления
         const notificationButton = document.getElementById('notification-button');//кнопка уведомления
 
-        const requiredCategories = ['суп', 'главное блюдо', 'салат', 'напиток'];
         const comboOptions = [
-            ['суп', 'главное блюдо', 'салат', 'напиток'],
-            ['суп', 'главное блюдо', 'напиток'],
-            ['суп', 'салат', 'напиток'],
-            ['главное блюдо', 'салат', 'напиток'],
-            ['главное блюдо', 'напиток']
+            ['soup', 'main-course', 'salad', 'drink'],
+            ['soup', 'main-course', 'drink'],
+            ['soup', 'salad', 'drink'],
+            ['main-course', 'salad', 'drink'],
+            ['main-course', 'drink']
         ];
 
         function checkOrder() {
@@ -233,13 +243,13 @@ document.addEventListener('DOMContentLoaded', () => {
             ); //проверка комбинаций комбо
 
             if (!validCombo) {
-                if (!chosenCategories.includes('напиток')) {
+                if (!chosenCategories.includes('drink')) {
                     showNotification("Выберите напиток");
-                } else if ((!chosenCategories.includes('главное блюдо') || !chosenCategories.includes('салат')) && chosenCategories.includes('суп')) {
+                } else if ((!chosenCategories.includes('main-course') || !chosenCategories.includes('salad')) && chosenCategories.includes('soup')) {
                     showNotification("Выберите главное блюдо/салат/стартер");
-                } else if (!chosenCategories.includes('суп') && !chosenCategories.includes('главное блюдо') && chosenCategories.includes('салат')) {
+                } else if (!chosenCategories.includes('soup') && !chosenCategories.includes('main-course') && chosenCategories.includes('salad')) {
                     showNotification("Выберите суп или главное блюдо");
-                } else if ((chosenCategories.includes('десерт')) || (chosenCategories.includes('напиток'))) {
+                } else if ((chosenCategories.includes('dessert')) || (chosenCategories.includes('drink'))) {
                     showNotification("Выберите главное блюдо");
                 } else {
                     showNotification("Некорректный выбор. Проверьте ваш заказ.");
@@ -264,9 +274,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.preventDefault(); // Не отправляем форму, если заказ некорректен
             }
         });
-    });
-
-});
+    } catch (error) {
+        console.error("Ошибка при загрузке блюд:", error);
+    }
+}
 
 
 
