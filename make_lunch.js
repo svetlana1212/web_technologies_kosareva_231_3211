@@ -27,7 +27,7 @@ async function loadDishes() {
             ticket.dataset.kind = dish['kind'];
 
             const img = document.createElement('img');
-            img.src = "/images/" + dish['image'] + ".png";
+            img.src = dish['image'];
             img.alt = dish['name'];
 
             const price = document.createElement('p');
