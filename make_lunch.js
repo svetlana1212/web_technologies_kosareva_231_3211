@@ -113,6 +113,8 @@ async function loadDishes() {
         FoodPriceElements.style.display = 'none';
         PriceCount.style.display = 'none';
 
+
+
         function GetOrder(dish) {
             let GetUpdate = false;
 
@@ -157,6 +159,35 @@ async function loadDishes() {
             LabelElem.style.display = 'block';
 
             FoodPrice += dish['price'];
+
+            document.querySelector('form').addEventListener('reset', function () {
+                ChosenSoup.style.display = 'none';
+                ChosenMain.style.display = 'none';
+                ChosenSalad.style.display = 'none';
+                ChosenJuice.style.display = 'none';
+                ChosenDessert.style.display = 'none';
+
+                SoupLabel.style.display = 'none';
+                MainLabel.style.display = 'none';
+                SaladLabel.style.display = 'none';
+                JuiceLabel.style.display = 'none';
+                DessertLabel.style.display = 'none';
+                PriceCount.style.display = 'none';
+                FoodPriceElements.style.display = 'none';
+
+                EmptyMessage.style.display = '';
+
+                ChosenFood = {
+                    'суп': null,
+                    'главное блюдо': null,
+                    'салат': null,
+                    'напиток': null,
+                    'десерт': null
+                };
+
+                FoodPrice = 0;
+            })
+
         }
 
         function EmptyElements() {
