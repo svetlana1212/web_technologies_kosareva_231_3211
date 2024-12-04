@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Доставка блюд из ресторанов в Москве</title>
+    <link rel="shortcut icon" type="image/jpg" href="/food.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles_main.css">
+    <link rel="stylesheet" href="styles_make_lunch.css">
+    <script src="get_order.js"></script>
+</head>
+
+
+<body>
+    <header>
+        <h1>FFD - Food Fast Delivery</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">О нас</a></li>
+                <li><a href="make_lunch.html">Собрать ланч</a></li>
+                <li><a class="active" href="get_order.html">Заказать блюдо</a></li>
+                <li><a href="#menu">Заказы</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="chosen_food">
+            <h2>Состав заказа</h2>
+            <div class="dishes_order">
+                <p class="nothing_selected">Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на страницу
+                    <a class="link" href="make_lunch.html">Собрать ланч</a>.
+                </p>
+            </div>
+        </section>
+        <section class="two-forms">
+            <div id="notification" class="notification hidden">
+                <p id="notification-text"></p>
+                <button id="notification-button">Окей</button>
+            </div>
+            <h2 id="form">Сделать заказ</h2>
+            <form>
+                <fieldset class="lunch">
+                    <p class="your_order">Ваш заказ</p>
+
+                    <p id="empty_space"><b>Ничего не выбрано</b></p>
+
+                    <p id="soup-select"><b>Суп</b></p>
+                    <p id="soup-selected">Блюдо не выбрано</p>
+
+                    <p id="main-course-select"><b>Главное блюдо</b></p>
+                    <p id="main-course-selected">Блюдо не выбрано</p>
+
+                    <p id="salad-select"><b>Салаты и стартеры</b></p>
+                    <p id="salad-selected">Блюдо не выбрано</p>
+
+                    <p id="drink-select"><b>Напиток</b></p>
+                    <p id="drink-selected">Напиток не выбран</p>
+
+                    <p id="dessert-select"><b>Десерт</b></p>
+                    <p id="dessert-selected">Десерт не выбран</p>
+
+                    <p id="food_price">Стоимость заказа</p>
+                    <p id="total_price">0₽</p>
+
+                    <label class='label_comment' for="comment">Комментарий к заказу</label>
+                    <textarea id="comment" rows="6" cols="34"
+                        placeholder="Укажите, какие у Вас есть пожелания или особенности"></textarea>
+                </fieldset>
+
+                <fieldset class="user">
+                    <legend class="your_data">Ваши данные</legend>
+
+                    <label for="name">Имя</label>
+                    <input type="text" id="name" placeholder="Иван">
+
+                    <label for="email" id="label_email">Email</label>
+                    <input type="text" id="email" placeholder="ivanov1990@mail.ru" required>
+                    <div>
+                        <input type="checkbox" id="subscribe" checked>
+                        <label for="subscribe" id="subscribe_yes">Получать информацию о скидках и акциях</label>
+                    </div>
+
+
+                    <label for="phone" id="label_phone">Номер телефона</label>
+                    <input type="tel" id="phone" placeholder="+7-000-000-00-00" required>
+
+
+                    <label for="address">Адрес доставки</label>
+                    <input type="text" id="address" placeholder="ул.Прянишникова, 2А, кв.0" required>
+                    <label id="label_delivery">Доставка осуществляется только по Москве</label>
+
+
+                    <label id="label_soon">Время доставки:</label>
+                    <div>
+                        <input type="radio" name="need_time" id="soon" value='asap' required checked>
+                        <label for="need_time">Как можно скорее</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="need_time" id="current_time" value='asap' required>
+                        <label for="need_time" id="end_time">К указанному времени</label>
+                    </div>
+
+
+                    <label for="time_choice" id="label_choice">Указать время доставки</label>
+                    <input type="time" id="time_choice" min="07:00" max="23:00" step="300">
+                    <label id="open_time">Доступное время доставки с 07:00 до 23:00</label>
+
+                    <div>
+                        <button type="reset" id="reset">Сбросить</button>
+                        <button type="submit" id="submit">Отправить</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <footer id="contact">
+        <p>Позвоните нам +7-000-000-00-00</p>
+    </footer>
+</body>
+
+</html>

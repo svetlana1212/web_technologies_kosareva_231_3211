@@ -212,11 +212,11 @@ textarea {
 #empty_space,
 #soup-select,
 #main-select,
-#juice-select {
+#drink-select {
     font-weight: bold;
 }
 
-#price {
+#total_price {
     font-size: larger;
 }
 
@@ -348,4 +348,31 @@ textarea {
 #notification-button:hover {
     background-color: #911e42;
     color: white;
+}
+
+.get_order {
+    position: sticky;
+    bottom: 0;
+    padding: 10px;
+    background-color: white;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.dishes_order {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 100%;
+}
+
+.nothing_selected.hidden {
+    display: none;
+}
+
+.link {
+    text-decoration: none;
+    color: #911e42;
 }
