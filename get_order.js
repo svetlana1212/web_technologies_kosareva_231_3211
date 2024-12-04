@@ -10,11 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const nothingSelectedMessage = document.querySelector('.nothing_selected');
             const chosenDishes = document.querySelectorAll('#chosen_food .dishes_order');
+            nothingSelectedMessage.style.display = '';
+
 
             // Проверяем, есть ли выбранные блюда
             if (chosenDishes.length > 0) {
                 nothingSelectedMessage.style.display = 'none';
             }
+
 
             function TicketsMake(dish) {
                 const ticket = document.createElement('div');
@@ -149,28 +152,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function RemoveDish(dish, ticket) {
                 if (window.localStorage.getItem('soup-selected') === String(dish['id'])) {
+                    console.log(FoodPrice);
                     window.localStorage.removeItem('soup-selected');
                     FoodPrice -= ChosenFood['soup']['price'];
+                    console.log(FoodPrice);
                     ChosenFood['soup'] = null;
+                    FoodPriceElements.textContent = `Стоимость заказа ${FoodPrice}₽`;
                 } else if (window.localStorage.getItem('main-course-selected') === String(dish['id'])) {
                     window.localStorage.removeItem('main-course-selected');
                     FoodPrice -= ChosenFood['main-course']['price'];
                     ChosenFood['main-course'] = null;
+                    FoodPriceElements.textContent = `Стоимость заказа ${FoodPrice}₽`;
 
                 } else if (window.localStorage.getItem('salad-selected') === String(dish['id'])) {
                     window.localStorage.removeItem('salad-selected');
                     FoodPrice -= ChosenFood['salad']['price'];
                     ChosenFood['salad'] = null;
+                    FoodPriceElements.textContent = `Стоимость заказа ${FoodPrice}₽`;
 
                 } else if (window.localStorage.getItem('drink-selected') === String(dish['id'])) {
                     window.localStorage.removeItem('drink-selected');
                     FoodPrice -= ChosenFood['drink']['price'];
                     ChosenFood['drink'] = null;
+                    FoodPriceElements.textContent = `Стоимость заказа ${FoodPrice}₽`;
 
                 } else if (window.localStorage.getItem('dessert-selected') === String(dish['id'])) {
                     window.localStorage.removeItem('dessert-selected');
                     FoodPrice -= ChosenFood['dessert']['price'];
                     ChosenFood['dessert'] = null;
+                    FoodPriceElements.textContent = `Стоимость заказа ${FoodPrice}₽`;
                 }
 
                 ticket.parentNode.removeChild(ticket);
@@ -208,16 +218,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     window.localStorage.getItem('drink-selected'),
                     window.localStorage.getItem('dessert-selected'),
                 ]
+                nothingSelectedMessage.style.display = '';
                 sortedFood.forEach(function (dish) {
                     if (localStorageIds.includes(String(dish['id']))) {
                         GetOrder(dish);
                     }
                 });
-                EmptyElements();
+
+                if (chosenDishes.length > 0) {
+                    nothingSelectedMessage.style.display = 'none';
+                }
             }
 
             loadFromLocalStorage();
+            nothingSelectedMessage.style.display = '';
 
+            if (chosenDishes.length > 0) {
+                nothingSelectedMessage.style.display = 'none';
+            }
 
             function UpdateGridElem(category, dish, CurrentElem, LabelElem) {
                 if (ChosenFood[category] !== null) {

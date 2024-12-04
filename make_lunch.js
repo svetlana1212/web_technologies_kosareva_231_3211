@@ -85,7 +85,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             function checkOrder() {
                 let notification = '';
-                let chosenCategories = Object.keys(ChosenFood).filter(category => ChosenFood[category]);//фильтрует категории, чтобы найти выбранные
+                let chosenCategories = Object.keys(ChosenFood).filter(category =>
+                    ChosenFood[category] && category !== 'dessert' // Исключаем десерты
+                );
 
                 if (chosenCategories.length === 0) {
                     notification = "Ничего не выбрано. Выберите блюда для заказа";
@@ -98,9 +100,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!validCombo) {
                     if (!chosenCategories.includes('drink')) {
                         notification = "Выберите напиток";
-                    } else if ((!chosenCategories.includes('main-course') || !chosenCategories.includes('salad')) && chosenCategories.includes('soup')) {
+                    } else if ((!chosenCategories.includes('main-course') || !chosenCategories.includes('salad'))
+                        && chosenCategories.includes('soup')) {
                         notification = "Выберите главное блюдо/салат/стартер";
-                    } else if (!chosenCategories.includes('soup') && !chosenCategories.includes('main-course') && chosenCategories.includes('salad')) {
+                    } else if (!chosenCategories.includes('soup') && !chosenCategories.includes('main-course')
+                        && chosenCategories.includes('salad')) {
                         notification = "Выберите суп или главное блюдо";
                     } else if ((chosenCategories.includes('dessert')) || (chosenCategories.includes('drink'))) {
                         notification = "Выберите главное блюдо";

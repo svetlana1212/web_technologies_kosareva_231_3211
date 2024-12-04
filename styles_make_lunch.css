@@ -368,10 +368,6 @@ textarea {
     width: 100%;
 }
 
-.nothing_selected.hidden {
-    display: none;
-}
-
 .link {
     text-decoration: none;
     color: #911e42;
