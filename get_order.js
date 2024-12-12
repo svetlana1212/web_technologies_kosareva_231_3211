@@ -375,8 +375,9 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             submitButton.addEventListener('click', (event) => {
+                event.preventDefault();// Не отправляем форму, если заказ некорректен
                 if (!checkOrder()) {
-                    event.preventDefault(); // Не отправляем форму, если заказ некорректен
+                    showNotification('Заказ некорректен, проверьте состав заказа');
                 } else {
                     let delivery_type = 'by_time';
                     if (document.querySelectorAll('input[name="need_time"]:checked')[0].value === 'asap') {
@@ -389,6 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
 
                     const formData = new FormData();
+
                     formData.append('full_name', document.getElementById('name').value);
                     formData.append('email', document.getElementById('email').value);
                     formData.append('subscribe', subscribe);
@@ -397,40 +399,55 @@ document.addEventListener('DOMContentLoaded', () => {
                     formData.append('delivery_type', delivery_type);
                     formData.append('delivery_time', document.getElementById('time_choice').value);
                     formData.append('comment', document.getElementById('comment').value);
-                    formData.append('soup_id', Number(window.localStorage.getItem('soup-selected')));
+                    /*formData.append('soup_id', Number(window.localStorage.getItem('soup-selected')));
                     formData.append('main_course_id', Number(window.localStorage.getItem('main-course-selected')));
                     formData.append('salad_id', Number(window.localStorage.getItem('salad-selected')));
                     formData.append('drink_id', Number(window.localStorage.getItem('drink-selected')));
-                    formData.append('dessert_id', Number(window.localStorage.getItem('dessert-selected')));
+                    formData.append('dessert_id', Number(window.localStorage.getItem('dessert-selected')));*/
 
-                    /*for (let pair of formData.entries()) {
-                        console.log(pair[0] + ', ' + pair[1] + ', ' + typeof pair[1]);
-                    }*/
+                    // Проверяем и добавляем только выбранные блюда
+                    const soupId = window.localStorage.getItem('soup-selected');
+                    if (soupId !== null) formData.append('soup_id', Number(soupId));
+
+                    const mainCourseId = window.localStorage.getItem('main-course-selected');
+                    if (mainCourseId !== null) formData.append('main_course_id', Number(mainCourseId));
+
+                    const saladId = window.localStorage.getItem('salad-selected');
+                    if (saladId !== null) formData.append('salad_id', Number(saladId));
+
+                    const drinkId = window.localStorage.getItem('drink-selected');
+                    if (drinkId !== null) formData.append('drink_id', Number(drinkId));
+
+                    const dessertId = window.localStorage.getItem('dessert-selected');
+                    if (dessertId !== null) formData.append('dessert_id', Number(dessertId));
+
+                    for (let pair of formData.entries()) {
+                        console.log(pair[0] + ': ' + pair[1] + ' (' + typeof pair[1] + ')');
+                    }
 
                     fetch('https://edu.std-900.ist.mospolytech.ru/labs/api/orders?api_key=d4f78d77-dc9e-488f-a090-8d40695dcec8', {
                         method: 'POST',
-                        body: formData,
-                        headers: {
-                            'Content-Type': 'multipart/form-data'
-                        }
+                        body: formData
                     })
                         .then((response) => response.json())
                         .then((data) => {
                             if (data['error']) {
                                 showNotification(data['error']);
                             } else {
-                                console.log(data);
                                 window.localStorage.removeItem('soup-selected');
                                 window.localStorage.removeItem('main-course-selected');
                                 window.localStorage.removeItem('salad-selected');
                                 window.localStorage.removeItem('drink-selected');
                                 window.localStorage.removeItem('dessert-selected');
                                 showNotification('Спасибо за заказ!');
+                                setTimeout(() => { location.reload(); }, 3000);
                             }
                         })
                         .catch((error) => {
-                            showNotification(error);
+                            console.error('Ошибка при отправке:', error);
+                            showNotification('Произошла ошибка. Попробуйте снова.');
                         })
+
                 }
             });
 
