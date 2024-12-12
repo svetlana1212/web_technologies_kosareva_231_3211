@@ -76,7 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
             GetTickets(chosenDishesSection);
 
             let FoodPrice = 0;
-            const FoodPriceElements = document.getElementById('total_price');
+            const FoodPriceElements = document.getElementById('food_price');
+            const PriceElements = document.getElementById('total_price');
 
             let ChosenFood = {
                 'soup': null,
@@ -112,8 +113,10 @@ document.addEventListener('DOMContentLoaded', () => {
             JuiceLabel.style.display = 'none';
             DessertLabel.style.display = 'none';
             FoodPriceElements.style.display = 'none';
+            PriceElements.style.display = 'none';
 
             EmptyMessage.style.display = '';
+
 
             function GetOrder(dish) {
                 let GetUpdate = false;
@@ -145,6 +148,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 FoodPriceElements.textContent = `Стоимость заказа ${FoodPrice}₽`;
                 FoodPriceElements.style.display = 'block';
+                //PriceElements.style.display = 'block';
+                //PriceElements.style.display = `${FoodPrice}₽`;
+
 
                 EmptyElements();
 

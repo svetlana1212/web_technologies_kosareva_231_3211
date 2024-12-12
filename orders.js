@@ -243,23 +243,31 @@ function deleteOrder(button) {
         return;
     }
 
-    fetch(`https://edu.std-900.ist.mospolytech.ru/labs/api/orders/${orderId}?api_key=d4f78d77-dc9e-488f-a090-8d40695dcec8`, {
+    // Сохраняем ID заказа в переменную
+    orderIdToDelete = orderId;
+}
+// Подтверждение удаления
+function confirmDelete() {
+    if (!orderIdToDelete) {
+        console.error('ID заказа не найден.');
+        return;
+    }
+
+    // Отправляем запрос на удаление
+    fetch(`https://edu.std-900.ist.mospolytech.ru/labs/api/orders/${orderIdToDelete}?api_key=d4f78d77-dc9e-488f-a090-8d40695dcec8`, {
         method: 'DELETE'
     })
-        .then(response => response.json()).then((data) => {
+        .then(response => response.json())
+        .then((data) => {
             if (data['error']) {
                 alert(data['error']);
             } else {
-                location.reload();
+                alert('Заказ удалён!');
+                closeModal();
+                location.reload(); // Перезагружаем страницу после успешного удаления
             }
         })
         .catch((error) => {
-            alert(error);
-        })
-}
-
-// Подтверждение удаления
-function confirmDelete() {
-    alert('Заказ удалён!');
-    closeModal();
+            alert('Ошибка при удалении заказа: ' + error);
+        });
 }
