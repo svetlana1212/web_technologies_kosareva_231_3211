@@ -1,0 +1,79 @@
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('landing.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.features-icon {
+    font-size: 2rem;
+    color: #ff5722;
+}
+
+.cta {
+    background-color: #911e42;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#cta {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('food_cta.jpg') center/cover no-repeat;
+}
+
+#more {
+    background-color: #ff5622d0;
+    color: white;
+}
+
+h2::before,
+h2::after {
+    content: '';
+    display: block;
+    width: 200px;
+    height: 2px;
+    background: #ff5722;
+    margin: 10px auto;
+}
+
+section.py-5 {
+    margin-top: 20px;
+}
+
+
+.submit-button {
+    position: relative;
+    z-index: 2;
+    /* Кнопка сверху */
+    padding: 10px 20px;
+    margin-top: 50px;
+    margin-bottom: 10px;
+}
+
+.button-hand {
+    position: absolute;
+    width: 100px;
+    /* Размер изображения руки */
+    top: 50px;
+    /* Расположение руки над кнопкой */
+    left: 50%;
+    transform: translate(-50%, -10px);
+    /* Сдвиг для точного позиционирования */
+    z-index: 3;
+    /* Рука должна быть перед кнопкой */
+    transition: transform 0.2s ease;
+    /* Плавный переход */
+    pointer-events: none;
+    /* Рука не мешает клику по кнопке */
+}
+
+/* Состояние нажатия кнопки */
+.submit-button:active+.button-hand {
+    transform: translate(-50%, 10px);
+    /* Двигаем руку вниз */
+    transition: transform 0.1s ease;
+}
+
+.mb-3 {
+    margin-left: 10px;
+}
