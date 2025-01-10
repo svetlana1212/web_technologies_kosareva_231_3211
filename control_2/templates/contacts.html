@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Доставка цветов в Москве</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/jpg" href="/static/images/bouquet.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/index.css">
+    <link rel="stylesheet" href="/static/css/contacts.css">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</head>
+
+<body>
+    <header>
+        <div class='logo'>
+            <div class="image_logo"></div>
+            <h1>Bloom & Blossom</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/index">О нас</a></li>
+                <li><a href="/bouquets">Букеты</a></li>
+                <li><a href="/gifts">Подарки</a></li>
+                <li><a class="active" href="/contacts">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="info">
+        <h2>Контакты</h2>
+        <p>Позвоните нам: <strong>+7-000-000-00-00</strong></p>
+        <p>Пишите нам: <a href="mailto:bloom_an_blossom@stud.mospolytech.ru">bloom_an_blossom@stud.mospolytech.ru</a>
+        </p>
+        <p>Наш адрес: <strong>Москва, ул. Цветочная, д. 5</strong></p>
+        <p>Время работы: круглосуточно, 24/7</p>
+
+        <h2>Как нас найти</h2>
+        <div id="map" class="map-container"></div>
+
+        <h2>Обратная связь</h2>
+        <form class="contact-form" action="/send-feedback" method="post">
+            <label for="name">Ваше имя</label>
+            <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
+
+            <label for="email">Ваш email</label>
+            <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
+
+            <label for="message">Ваше сообщение</label>
+            <textarea id="message" name="message" rows="5" placeholder="Введите ваше сообщение" required></textarea>
+
+            <button type="submit">Отправить</button>
+        </form>
+    </main>
+    <footer>
+        <p class="contact">Позвоните нам: +7-000-000-00-00</p>
+        <p class="email">Пишите нам: <a>bloom_an_blossom@stud.mospolytech.ru</a></p>
+        <p class="address">Наш адрес: Москва, ул. Цветочная, д. 5</p>
+        <p class="hours">Время работы: круглосуточно, 24/7</p>
+        <ul class="icons">
+            <li><a href="#"><img src="/static/images/vk.png" alt="VK" style="width: 30px;"></a></li>
+            <li><a href="#"><img src="/static/images/telegram.png" alt="Telegram" style="width:30px;"></a></li>
+        </ul>
+        <p class="copyright">© 2024 Bloom & Blossom. Все права защищены.</p>
+    </footer>
+
+    <script>
+        // Инициализация Яндекс.Карты
+        ymaps.ready(init);
+        function init() {
+            const map = new ymaps.Map("map", {
+                center: [55.751244, 37.618423], // Координаты центра Москвы
+                zoom: 15,
+            });
+
+            // Добавляем метку на карту
+            const placemark = new ymaps.Placemark([55.751244, 37.618423], {
+                balloonContent: "Bloom & Blossom: Москва, ул. Цветочная, д. 5"
+            });
+
+            map.geoObjects.add(placemark);
+        }
+    </script>
+</body>
+
+</html>
