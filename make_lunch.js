@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (dish['category'] === 'dessert') {
                     UpdateGridElem('dessert', dish);
                     window.localStorage.setItem('dessert-selected', dish['id']);
-                }
+                };
 
                 if (FoodPriceElements) {
                     FoodPriceElements.textContent = `Стоимость заказа ${FoodPrice}₽`;
