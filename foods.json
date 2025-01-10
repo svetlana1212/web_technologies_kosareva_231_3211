@@ -1,0 +1,274 @@
+{
+    "dishes": [
+        {
+            "keyword": "bouillabaisse",
+            "name": "Буйабес",
+            "price": 350,
+            "category": "суп",
+            "volume": "400 г",
+            "image": "bouillabaisse.jpg",
+            "kind": "fish"
+        },
+        {
+            "keyword": "uha",
+            "name": "Уха",
+            "price": 210,
+            "category": "суп",
+            "volume": "350 г",
+            "image": "uha.jpg",
+            "kind": "fish"
+        },
+        {
+            "keyword": "mashrom",
+            "name": "Грибной суп-пюре",
+            "price": 185,
+            "category": "суп",
+            "volume": "330 г",
+            "image": "mashr_soup.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "pumpkin",
+            "name": "Тыквенный суп",
+            "price": 270,
+            "category": "суп",
+            "volume": "330 г",
+            "image": "pumpkin_soup.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "cabbage soup",
+            "name": "Щи",
+            "price": 290,
+            "category": "суп",
+            "volume": "350 г",
+            "image": "cabbage_soup.jpg",
+            "kind": "meat"
+        },
+        {
+            "keyword": "soup_meatballs",
+            "name": "Суп с фрикадельками",
+            "price": 285,
+            "category": "суп",
+            "volume": "350 г",
+            "image": "soup_meatballs.jpg",
+            "kind": "meat"
+        },
+        {
+            "keyword": "potato",
+            "name": "Жареная картошка с грибами",
+            "price": 150,
+            "category": "главное блюдо",
+            "volume": "250 г",
+            "image": "potato_two.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "vegetarian_pizza",
+            "name": "Вегетарианская пицца",
+            "price": 290,
+            "category": "главное блюдо",
+            "volume": "350 г",
+            "image": "vegetarian_pizza.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "lasagna",
+            "name": "Лазанья",
+            "price": 280,
+            "category": "главное блюдо",
+            "volume": "350 г",
+            "image": "lasagna.jpg",
+            "kind": "meat"
+        },
+        {
+            "keyword": "meat_vegetables",
+            "name": "Запеченное мясо с овощами",
+            "price": 225,
+            "category": "главное блюдо",
+            "volume": "280 г",
+            "image": "meat_vegetables.jpg",
+            "kind": "meat"
+        },
+        {
+            "keyword": "fish_with_marinade",
+            "name": "Рыба в маринаде",
+            "price": 290,
+            "category": "главное блюдо",
+            "volume": "310 г",
+            "image": "fish_with_marinade.jpg",
+            "kind": "fish"
+        },
+        {
+            "keyword": "pollock_cutlets",
+            "name": "Котлеты из минтая",
+            "price": 280,
+            "category": "главное блюдо",
+            "volume": "250 г",
+            "image": "pollock_cutlets.jpg",
+            "kind": "fish"
+        },
+        {
+            "keyword": "shrimp_cocktail",
+            "name": "Коктейль из креветок",
+            "price": 310,
+            "category": "салат",
+            "volume": "250 г",
+            "image": "shrimp_cocktail.jpg",
+            "kind": "fish"
+        },
+        {
+            "keyword": "chicken_wings",
+            "name": "Куриные крылышки в соусе барбекю",
+            "price": 310,
+            "category": "салат",
+            "volume": "320 г",
+            "image": "chicken_wings.jpg",
+            "kind": "meat"
+        },
+        {
+            "keyword": "baked_feta",
+            "name": "Запеченная фета с виноградом и розмарином",
+            "price": 260,
+            "category": "салат",
+            "volume": "250 г",
+            "image": "baked_feta.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "grilled_vegetable",
+            "name": "Запеченные овощи",
+            "price": 250,
+            "category": "салат",
+            "volume": "210 г",
+            "image": "grilled_vegetable.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "stuffed_mushrooms",
+            "name": "Фаршированные грибы",
+            "price": 230,
+            "category": "салат",
+            "volume": "210 г",
+            "image": "stuffed_mushrooms.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "burrata_bruschetta",
+            "name": "Брускетта с бурратой",
+            "price": 210,
+            "category": "салат",
+            "volume": "200 г",
+            "image": "burrata_bruschetta.jpg",
+            "kind": "veg"
+        },
+        {
+            "keyword": "orange_juice",
+            "name": "Апельсиновый сок",
+            "price": 120,
+            "category": "напиток",
+            "volume": "300 мл",
+            "image": "orange.jpg",
+            "kind": "cold"
+        },
+        {
+            "keyword": "apple_juice",
+            "name": "Яблочный сок",
+            "price": 90,
+            "category": "напиток",
+            "volume": "300 мл",
+            "image": "apple.jpg",
+            "kind": "cold"
+        },
+        {
+            "keyword": "cherry_juice",
+            "name": "Вишневый сок",
+            "price": 110,
+            "category": "напиток",
+            "volume": "330 мл",
+            "image": "cherry.jpg",
+            "kind": "cold"
+        },
+        {
+            "keyword": "raspberry_punch",
+            "name": "Малиновый пунш",
+            "price": 130,
+            "category": "напиток",
+            "volume": "300 мл",
+            "image": "raspberry_punch.jpg",
+            "kind": "hot"
+        },
+        {
+            "keyword": "black_tea",
+            "name": "Черный чай",
+            "price": 50,
+            "category": "напиток",
+            "volume": "300 мл",
+            "image": "black_tea.jpg",
+            "kind": "hot"
+        },
+        {
+            "keyword": "hot_chocolate",
+            "name": "Горячий шоколад",
+            "price": 190,
+            "category": "напиток",
+            "volume": "330 мл",
+            "image": "hot_chocolate.jpg",
+            "kind": "hot"
+        },
+        {
+            "keyword": "cheesecake",
+            "name": "Чизкейк",
+            "price": 250,
+            "category": "десерт",
+            "volume": "150 гр",
+            "image": "cheesecake.jpg",
+            "kind": "medium"
+        },
+        {
+            "keyword": "apple_charlotte",
+            "name": "Шарлотка",
+            "price": 310,
+            "category": "десерт",
+            "volume": "300 гр",
+            "image": "apple_charlotte.jpg",
+            "kind": "large"
+        },
+        {
+            "keyword": "brownie cake",
+            "name": "Брауни",
+            "price": 200,
+            "category": "десерт",
+            "volume": "170 гр",
+            "image": "brownie_cake.jpg",
+            "kind": "medium"
+        },
+        {
+            "keyword": "mini_cinnamon",
+            "name": "Мини-булочки с корицей",
+            "price": 210,
+            "category": "десерт",
+            "volume": "120 гр",
+            "image": "mini_cinnamon.jpg",
+            "kind": "mini"
+        },
+        {
+            "keyword": "macarons",
+            "name": "Макарони",
+            "price": 290,
+            "category": "десерт",
+            "volume": "110 гр",
+            "image": "macarons.jpg",
+            "kind": "mini"
+        },
+        {
+            "keyword": "mochi",
+            "name": "Мороженое Моти",
+            "price": 300,
+            "category": "десерт",
+            "volume": "130 гр",
+            "image": "mochi.jpg",
+            "kind": "mini"
+        }
+    ]
+}
