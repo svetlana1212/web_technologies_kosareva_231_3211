@@ -3,89 +3,105 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Доставка блюд из ресторанов в Москве</title>
-    <link rel="shortcut icon" type="image/jpg" href="/food.jpg">
+    <title>Основы веб-технологий / Косарева Светлана 231-3211</title>
+    <link rel="shortcut icon" type="image/jpg" href="/">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styles_main.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script src="/js/index.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>FFD - Food Fast Delivery</h1>
-        <nav>
-            <ul>
-                <li><a class="active" href="index.html">О нас</a></li>
-                <li><a href="make_lunch.html">Собрать ланч</a></li>
-                <li><a href="get_order.html">Заказать блюдо</a></li>
-                <li><a href="orders.html">Заказы</a></li>
-                <li><a href="landing.html">Контакты</a></li>
-            </ul>
-        </nav>
+        <div class="header">
+            <a href="/index.html">
+                <img src="/icons/logo.png" alt="Logo" class="logo">
+            </a>
+            <div class="search">
+                <form>
+                    <input type="text" id="searchInput" placeholder="Введите запрос">
+                    <button type="submit">Найти</button>
+                </form>
+            </div>
+            <div class="icons">
+                <a class=" action-btn" style="padding-right:10px;" title="Корзина" href="/basket.html">
+                    <img src="/icons/basket.svg" alt="Eye" class="icon"></a>
+                <a class="action-btn" title="Личный кабинет" href="/orders.html"><img src="/icons/proile.svg" alt="Eye"
+                        class="icon"></a>
+            </div>
+        </div>
     </header>
+    <div id="notification" class="notification hidden">
+        <p id="notification-text"></p>
+        <button id="notification-button">Окей</button>
+    </div>
     <main>
-        <section class="about">
-            <img src="eda.jpg" alt="Начальная заставка, фото еды">
-            <h2 id="1">О нас</h2>
-            <p>Food Fast Delivery - это точка с доставкой еды из ресторанов по всей Москве. Мы работаем более 10 лет!
-                Нас рекомендуют десятки тысяч довольных клиентов. Приятного аппетита!</p>
-        </section>
-        <section>
-            <h2>Преимущества Food Fast Delivery</h2>
-            <ul>
-                <li>Быстрая доставка</li>
-                <li>Приятные цены</li>
-                <li>Работаем с 7 до 23</li>
-                <li>Гарантия качества</li>
-            </ul>
-        </section>
-        <section id="menu">
-            <h2>Топ-5 популярных блюд</h2>
-            <table>
-                <tr>
-                    <th>Топ</th>
-                    <th>Название</th>
-                    <th>Кол-во заказов в неделю</th>
-                    <th>Цена</th>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>Паста с беконом</td>
-                    <td>301</td>
-                    <td>320</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Греческий салат</td>
-                    <td>256</td>
-                    <td>250</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Пицца "Цыпленок"</td>
-                    <td>201</td>
-                    <td>670</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Роллы "Филадельфия"</td>
-                    <td>189</td>
-                    <td>570</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Сырники</td>
-                    <td>170</td>
-                    <td>300</td>
-                </tr>
-            </table>
-        </section>
+        <div class="content">
+            <!-- Сайдбар для фильтрации товаров -->
+            <aside class="sidebar">
+                <form class="filter-form">
+                    <h3>Фильтр товаров</h3>
+
+                    <div class="filter-section">
+                        <h4>Категория товара</h4>
+                        <label><input type="checkbox" name="category" value="home & kitchen">Дом & Кухня</label><br>
+                        <label><input type="checkbox" name="category" value="tv, audio & cameras">ТВ, аудио &
+                            камеры</label><br>
+                        <label><input type="checkbox" name="category" value="sports & fitness">Спорт &
+                            Фитнес</label><br>
+                        <label><input type="checkbox" name="category" value="beauty & health">Красота &
+                            Здоровье</label><br>
+                    </div>
+
+                    <div class="filter-section">
+                        <h4>Стоимость</h4>
+                        <label>От: <input type="number" name="price_from" min="0" step="100" value="100"></label>
+                        <label>До: <input type="number" name="price_to" min="0" step="100" value="5000"></label>
+                    </div>
+
+                    <div class="filter-section">
+                        <label><input type="checkbox" name="discount"> Только товары со скидками</label>
+                    </div>
+
+                    <button type="submit" class="apply-button">Применить</button>
+                </form>
+            </aside>
+
+            <!-- Блок с каталогом товаров -->
+            <section class="catalog">
+                <div class="catalog-header">
+                    <h2>Каталог</h2>
+
+                    <select id="sort" name="sort" onchange="changeSortOrder()">
+                        <option value="popularity-asc">По убыванию рейтинга</option>
+                        <option value="popularity-desc">По возрастанию рейтинга</option>
+                        <option value="price-asc">По убыванию цены</option>
+                        <option value="price-desc">По возрастанию цены</option>
+                    </select>
+                </div>
+
+                <div class="product-grid">
+                    <!-- Карточки товаров -->
+                </div>
+
+                <div id="catalog">
+                    <div id="goods-container"></div>
+                    <div id="pagination-controls">
+                        <button id="load-more" onclick="loadMoreGoods()">Загрузить ещё</button>
+                    </div>
+                </div>
+            </section>
+        </div>
     </main>
-    <footer id="contact">
-        <p>Позвоните нам +7-000-000-00-00</p>
+
+    <footer>
+        <div class="container">
+            <p>Телефон: +7-000-000-00-00</p>
+            <p>© 2025 Название магазина. Все права защищены.</p>
+        </div>
     </footer>
 </body>
 
